@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SignIn from '@/views/auth/SignIn'
 import SignUp from '@/views/auth/SignUp'
-import error from '@/views/error'
+
+import Main from '@/views/Main'
+
+import NotFound from '@/views/errors/NotFound'
 
 Vue.use(Router)
 
@@ -20,9 +23,14 @@ export default new Router({
       component: SignUp
     },
     {
+      path: '/',
+      name: 'Main',
+      component: Main
+    },
+    {
       path: '*',
-      name: '',
-      component: error
+      name: 'NotFound',
+      component: NotFound
     }
 
   ]

@@ -20,8 +20,8 @@
     </div>
 
     <div class="form-group required">
-      <label class="control-label" for="username">Логин:</label>
-      <b-input v-model="form.username" type="text" id="username" placeholder="Логин..."/>
+      <label class="control-label" for="username">Имя:</label>
+      <b-input v-model="form.username" type="text" id="username" placeholder="Имя..."/>
 
       <p><small class="text-muted">Минимальная длина логина 5 символов</small></p>
     </div>
@@ -96,7 +96,7 @@ export default {
         required,
         minLength: minLength(5)
       },
-      phone: {
+      phone_number: {
         required
       },
       password: {
@@ -130,19 +130,21 @@ export default {
     async register () {
       // логика регистрации
       try {
+        this.form.phone_number = this.form.phone_number.replace(/[()-]/g, '')
+
         await this.authRequest('auth/users', this.form)
 
         // редиректим, если нет ошибки
         this.$router.push('/auth/signin')
       } catch (e) {
-        console.error('AN API ERROR', e)
-        this.err = e
+        // console.error('AN API ERROR', e.data)
+        this.err = e.message
       }
     },
 
     onAccept (e) {
       const maskRef = e.detail
-      this.form.phone = maskRef.value
+      this.form.phone_number = maskRef.value
     },
 
     onComplete (e) {

@@ -18,7 +18,7 @@ const authRequest = {
      */
     async authRequest (url, data) {
       const DEFAULT_HEADERS = { 'Content-type': 'application/json' }
-      const BASE_URL = 'http://localhost:8080'
+      const BASE_URL = 'http://localhost:8000/lenses_calendar'
 
       const __url = `${BASE_URL}/${url}/`
 
@@ -30,10 +30,11 @@ const authRequest = {
       })
 
       if (response.status !== 200 && response.status !== 201) {
+        // console.error('AN API ERROR', response.error)
         throw new Error(response.error)
       }
 
-      return response.data
+      return response
     }
   }
 }
