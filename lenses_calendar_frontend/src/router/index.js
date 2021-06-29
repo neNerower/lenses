@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import SignIn from '@/views/auth/SignIn'
 import SignUp from '@/views/auth/SignUp'
 
-import Main from '@/views/Main'
+import Home from '@/views/Home'
 
 import NotFound from '@/views/errors/NotFound'
 
@@ -24,8 +24,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Main',
-      component: Main
+      name: 'Home',
+      component: Home
     },
     {
       path: '*',
