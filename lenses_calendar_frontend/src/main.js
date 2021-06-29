@@ -20,6 +20,6 @@ Vue.use(Vuelidate)
 new Vue({
   render: h => h(App),
   router,
-  vuetify,
+  vuetify, // : new vuetify({ iconfont: 'mdi' }),
   axios
 }).$mount('#app')

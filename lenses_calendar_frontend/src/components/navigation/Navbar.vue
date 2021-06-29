@@ -12,16 +12,16 @@
                     class="button"
                     elevation="0"
                     color="#ECFAFF"
-                    href="/login"
+                    @click="signin()"
                 >
-                    Log in
+                    Sign in
                 </v-btn>
                 <v-btn
                     class="button button_signup"
                     elevation="0"
                     color="#7FD4F1"
                     text-color="white"
-                    href="/signup"
+                    @click="signup()"
                 >
                     Sign up
                 </v-btn>
@@ -80,8 +80,19 @@ export default {
         this.block = 2
       } catch (e) {
         this.block = 1
-        this.$router.push('/')
+
+        console.log(this.$route.path)
+        if (['/signup', '/signin', '/'].indexOf(this.$route.path) === -1) {
+          this.$router.push('/')
+        }
       }
+    },
+
+    signin () {
+      this.$router.push('/signin')
+    },
+    signup () {
+      this.$router.push('/signup')
     },
 
     logout () {
