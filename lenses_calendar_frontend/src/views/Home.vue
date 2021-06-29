@@ -1,10 +1,15 @@
 <template>
-  <div>Home page</div>
+  <v-card flat>
+    <LensList />
+  </v-card>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    LensList: () => import('./lists/LensList')
+  }
 
 }
 </script>
