@@ -1,6 +1,6 @@
 <template>
   <b-form @submit.prevent="login">
-    <p v-if="err">{{ err }}</p>
+    <p v-if="err">{{ err.response.data.detail }}</p>
 
     <div class="form-group">
       <label class="control-label" for="phone_number">Номер телефона:</label>
@@ -85,7 +85,7 @@ export default {
 
         this.$router.push('/')
       } catch (error) {
-        console.error('AN API ERROR:', error)
+        console.error('AN API ERROR:', error.response)
         this.err = error
       }
     },
