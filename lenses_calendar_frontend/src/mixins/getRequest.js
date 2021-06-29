@@ -1,7 +1,7 @@
-const authRequest = {
+const getRequest = {
   methods: {
     /**
-     * authRequest
+     * getRequest
      *
      * Mixin-метод для более удобного взаимодействия
      * с api для представлений авторизации.
@@ -10,22 +10,22 @@ const authRequest = {
      *
      * @param {String} url адрес, по которому нужно
      * делать запрос
-     * @param {Object} data данные, которые нужно
-     * передать с запросом
      *
      * @returns {Object} ответ с сервера
      * @throws {Error} ошибка при неудаче
      */
-    async authRequest (url, data) {
-      const DEFAULT_HEADERS = { 'Content-type': 'application/json' }
+    async getRequest (url) {
+      const DEFAULT_HEADERS = {
+        'Content-type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('jwt').access
+      }
       const BASE_URL = 'http://localhost:8000/lenses_calendar'
 
       const __url = `${BASE_URL}/${url}/`
 
       const response = await this.axios({
-        method: 'POST',
+        method: 'GET',
         url: __url,
-        data: data,
         headers: DEFAULT_HEADERS
       })
 
@@ -39,4 +39,4 @@ const authRequest = {
   }
 }
 
-export default authRequest
+export default getRequest

@@ -65,7 +65,7 @@
 <script>
 import { required, minLength, sameAs } from 'vuelidate/lib/validators'
 import { IMaskDirective } from 'vue-imask'
-import authRequest from '@/mixins/authRequest'
+import postRequest from '@/mixins/postRequest'
 
 export default {
   name: 'SignUpForm',
@@ -124,7 +124,7 @@ export default {
     }
   },
 
-  mixins: [authRequest],
+  mixins: [postRequest],
 
   methods: {
     async register () {
@@ -132,7 +132,7 @@ export default {
       try {
         this.form.phone_number = this.form.phone_number.replace(/[()-]/g, '')
 
-        await this.authRequest('auth/users', this.form)
+        await this.postRequest('auth/users', this.form)
 
         // редиректим, если нет ошибки
         this.$router.push('/auth/signin')

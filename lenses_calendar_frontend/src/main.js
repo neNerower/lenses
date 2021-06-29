@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import router from '@/router/index'
 import Vuelidate from 'vuelidate'
+import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
@@ -19,5 +20,6 @@ Vue.use(Vuelidate)
 new Vue({
   render: h => h(App),
   router,
+  vuetify,
   axios
 }).$mount('#app')

@@ -30,7 +30,7 @@
   </b-form>
 </template>
 <script>
-import authRequest from '@/mixins/authRequest'
+import postRequest from '@/mixins/postRequest'
 import { required } from 'vuelidate/lib/validators'
 import { IMaskDirective } from 'vue-imask'
 
@@ -72,13 +72,13 @@ export default {
     }
   },
 
-  mixins: [authRequest],
+  mixins: [postRequest],
 
   methods: {
     async login () {
       // логика авторизации
       try {
-        const response = await this.authRequest('token', this.form)
+        const response = await this.postRequest('token', this.form)
 
         // авторизуем юзера
         this.setLogined(response.data)
@@ -93,7 +93,7 @@ export default {
     setLogined (jwt) {
       // сохраняем токен
       console.log(jwt)
-      localStorage.setItem('jwtoken', jwt)
+      localStorage.setItem('jwt', jwt)
       this.axios.defaults.headers.common = {
         Authorization: 'Bearer ' + jwt.access
       }
