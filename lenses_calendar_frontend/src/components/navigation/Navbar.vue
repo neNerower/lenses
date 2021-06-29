@@ -32,10 +32,11 @@
                     <p class="name">{{ username }}</p>
                     <p class="phone_number">{{ phone_number }}</p>
                 </div>
-                <v-avatar color="warning lighten-2" size="35">
-                    <v-icon dark>
-                        mdi-account-circle
-                    </v-icon>
+                <v-avatar size="45">
+                    <img
+                        src="@/assets/avatar.png"
+                        alt="avatar"
+                    >
                 </v-avatar>
                 <v-btn
                     depressed
@@ -75,8 +76,9 @@ export default {
     async isLogin () {
       try {
         const response = await this.getRequest('auth/users/me')
-        this.username = response.username
-        this.phone_number = response.phone_number
+        this.username = response.data.username
+        this.phone_number = response.data.phone_number
+        console.log(this.phone_number)
         this.block = 2
       } catch (e) {
         this.block = 1
