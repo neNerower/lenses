@@ -17,7 +17,7 @@ const getRequest = {
     async getRequest (url) {
       const DEFAULT_HEADERS = {
         'Content-type': 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('jwt').access
+        Authorization: 'Bearer ' + localStorage.getItem('jwt_access')
       }
       const BASE_URL = 'http://localhost:8000/lenses_calendar'
 

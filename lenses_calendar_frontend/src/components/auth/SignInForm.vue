@@ -83,7 +83,7 @@ export default {
         // авторизуем юзера
         this.setLogined(response.data)
 
-        this.$router.push('/')
+        window.location.replace('/')
       } catch (error) {
         console.error('AN API ERROR:', error.response)
         this.err = error
@@ -93,11 +93,13 @@ export default {
     setLogined (jwt) {
       // сохраняем токен
       console.log(jwt)
-      localStorage.setItem('jwt', jwt)
-      this.axios.defaults.headers.common = {
-        Authorization: 'Bearer ' + jwt.access
-      }
-      console.log(`Bearer ${jwt.access}`)
+      localStorage.setItem('jwt_access', jwt.access)
+      localStorage.setItem('jwt_refresh', jwt.refresh)
+
+      // this.axios.defaults.headers.common = {
+      //   Authorization: 'Bearer ' + jwt.access
+      // }
+      console.log(`Bearer ${localStorage.getItem('jwt_access')}`)
     },
 
     onAccept (e) {

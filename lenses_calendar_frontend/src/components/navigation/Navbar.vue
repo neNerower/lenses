@@ -96,9 +96,10 @@ export default {
     },
 
     logout () {
-      localStorage.removeItem('jwt')
-      // window.location.replace("/")
-      this.$router.push('/')
+      localStorage.removeItem('jwt_access')
+      localStorage.removeItem('jwt_refresh')
+      window.location.replace('/')
+      // this.$router.push('/')
     }
   }
 }
