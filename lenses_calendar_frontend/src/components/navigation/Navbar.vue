@@ -2,9 +2,9 @@
     <header class="header d-flex justify-space-between align-center">
         <logo />
         <ul class="right_menu d-flex pa-0">
-            <li><a href="">Lenses</a></li>
-            <li><a href="">Manufactuters</a></li>
-            <li><a href="">Contacts</a></li>
+            <li><router-link to='/lenses'>Lenses</router-link></li>
+            <li><router-link to='/manufacturers'>Manufactuters</router-link></li>
+            <li><router-link to='/'>Contacts</router-link></li>
         </ul>
         <div class="left_menu">
             <div v-if="this.block == 1">

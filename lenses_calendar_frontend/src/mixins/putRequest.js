@@ -1,6 +1,6 @@
-const getRequest = {
+const putRequest = {
   methods: {
-    async getRequest (url) {
+    async putRequest (url, data) {
       const DEFAULT_HEADERS = {
         'Content-type': 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('jwt_access')
@@ -10,8 +10,9 @@ const getRequest = {
       const __url = `${BASE_URL}/${url}/`
 
       const response = await this.axios({
-        method: 'GET',
+        method: 'PUT',
         url: __url,
+        data: data,
         headers: DEFAULT_HEADERS
       })
 
@@ -25,4 +26,4 @@ const getRequest = {
   }
 }
 
-export default getRequest
+export default putRequest

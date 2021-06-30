@@ -20,7 +20,7 @@
           >
             <v-img
               :aspect-ratio="16/9"
-              src="@/assets/app_bar.jpg"
+              src="@/assets/factory.jpg"
             >
             </v-img>
 
