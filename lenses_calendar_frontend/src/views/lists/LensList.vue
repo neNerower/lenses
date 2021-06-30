@@ -83,17 +83,11 @@ export default {
 
   methods: {
     async loadLensesList () {
-      // this.listRooms = await fetch(
-      //   'http://localhost:8000/lenses_calendar/lenses/all'
-      // ).then(response => response.json())
-
       try {
-        console.log('start')
         const response = await this.getRequest('lenses/all')
         this.lensesList = response.data.map(this.parse)
-        console.log(this.lensesList)
       } catch (e) {
-        console.log('error loading lenses: ' + e.response.data)
+        console.log(e.response)
       }
     },
 

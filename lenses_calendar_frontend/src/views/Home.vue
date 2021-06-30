@@ -1,6 +1,8 @@
 <template>
   <v-card flat>
     <LensList />
+    <v-divider></v-divider>
+    <ManufacturersList />
   </v-card>
 </template>
 
@@ -8,7 +10,8 @@
 export default {
   name: 'Home',
   components: {
-    LensList: () => import('./lists/LensList')
+    LensList: () => import('./lists/LensList'),
+    ManufacturersList: () => import('./lists/ManufacturerList')
   }
 
 }
