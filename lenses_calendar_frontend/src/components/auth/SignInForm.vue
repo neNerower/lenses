@@ -25,7 +25,7 @@
     </div>
 
     <b-button variant="primary" type="submit" :disabled="formValid">Войти</b-button>
-    <p class="mt-3">Ещё не зарегистрированы? <router-link to="/auth/signup">Регистрация</router-link>
+    <p class="mt-3">Ещё не зарегистрированы? <router-link to="/signup">Регистрация</router-link>
     </p>
   </b-form>
 </template>

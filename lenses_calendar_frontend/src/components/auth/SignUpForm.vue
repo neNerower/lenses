@@ -59,7 +59,7 @@
       </small>
     </p>
 
-    <p class="mt-3">Уже есть аккаунт? <router-link to="/auth/signin">Вход</router-link></p>
+    <p class="mt-3">Уже есть аккаунт? <router-link to="/signin">Вход</router-link></p>
   </b-form>
 </template>
 <script>
